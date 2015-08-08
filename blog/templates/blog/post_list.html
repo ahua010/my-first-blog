@@ -7,13 +7,21 @@
 	<body>
 		<div>
 			<h1>Anh's Blog</h1>
-			<h2><a href="anhhua.me">About me</a></h2>
+			<h2><a href="http://anhhua.me">About me</a></h2>
 		</div>
+
+		{% for post in posts %}
+			<div>
+				<p>published: {{ post.published_date }}</p>
+				<h1><a href=""> {{ post.title }} </a></h1>
+				<p> {{ post.text|linebreaks }} </p>
+			</div>
+		{% endfor %}
 		
-		<div>
+<!-- 		<div>
 			<p><a href="https://github.com/ahua010">Github</a></p>
 			<p><a href="https://www.linkedin.com/in/huaanh">LinkedIn</p>
-		</div>
+		</div> -->
 
 	</body>
 
