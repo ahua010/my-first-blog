@@ -1,28 +1,14 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Anh's Blog</title>
-	</head>
+{% extends "blog/base.html" %}
 
-	<body>
-		<div>
-			<h1>Anh's Blog</h1>
-			<h2><a href="http://anhhua.me">About me</a></h2>
-		</div>
+{% block content %}
+	{% for post in posts %}
+	    <div class="post">
+	        <div class="date">
+	            {{ post.published_date }}
+	        </div>
+	        <h1><a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a></h1>
+	        <p>{{ post.text|linebreaks }}</p>
+	    </div>
+	{% endfor %}
+{% endblock content %}
 
-		{% for post in posts %}
-			<div>
-				<p>published: {{ post.published_date }}</p>
-				<h1><a href=""> {{ post.title }} </a></h1>
-				<p> {{ post.text|linebreaks }} </p>
-			</div>
-		{% endfor %}
-		
-<!-- 		<div>
-			<p><a href="https://github.com/ahua010">Github</a></p>
-			<p><a href="https://www.linkedin.com/in/huaanh">LinkedIn</p>
-		</div> -->
-
-	</body>
-
-</html>
